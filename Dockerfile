@@ -13,6 +13,8 @@ COPY . /app
 
 WORKDIR /app
 
+RUN pip install typing-extensions==3.10.0.2
+
 RUN pip install -r requirements.txt
 
 EXPOSE 3000
