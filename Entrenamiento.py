@@ -12,7 +12,6 @@ listaPersonas = [
     'Daniela',
     'Gerardo',
     'Jazael',
-    'Melissa',
 ]
 
 dataPath = f'{os.getcwd()}/data'

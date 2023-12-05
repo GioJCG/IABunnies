@@ -5,9 +5,8 @@ import time
 
 listaPersonas = [
     'Daniela',
-    'Gerardo',
     'Jazael',
-    'Melissa',
+    'Gerardo',
 ]
 
 dataPath = f'{os.getcwd()}/data'
@@ -49,7 +48,7 @@ for nombrePersona in listaPersonas:
             cv2.imshow('frame', frame)
 
             k = cv2.waitKey(1)
-            if k == 27 or count >= 200:
+            if k == 27 or count >= 500:
                 print(f"\n --- Se capturaron {count} Fotos ---")
                 break
 
