@@ -12,6 +12,9 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
+    - name: Crear carpeta
+      run: mkdir model
+
     - name: Descargar modelo desde Firebase
       run: |
         wget -O model/modelo_entrenado.h5 https://firebasestorage.googleapis.com/v0/b/pruebasjazael.appspot.com/o/modelo_entrenado.h5?alt=media&token=b6c5af43-e5f9-4d1a-b2be-fcf3ee694d48
