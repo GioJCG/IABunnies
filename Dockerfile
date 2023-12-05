@@ -1,12 +1,10 @@
 FROM ubuntu:20.04
 
-RUN apt-get update -y 
-
-RUN apt-get upgrade -y
-
-RUN apt-get install python3.7.2 -y
-
-RUN apt-get install python3-pip -y
+RUN apt-get update -y \
+    && apt-get upgrade -y \
+    && apt-get install -y python3.8 python3.8-dev python3-pip libgl1-mesa-glx \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY . /app
 
