@@ -19,18 +19,22 @@ jobs:
       run: |
         wget -O model/modelo_entrenado.h5 https://firebasestorage.googleapis.com/v0/b/pruebasjazael.appspot.com/o/modelo_entrenado.h5?alt=media&token=b6c5af43-e5f9-4d1a-b2be-fcf3ee694d48
 
-    - name: Construir Imagen Docker
-      run: docker build -t ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}} .
-      
-    - name: Mostrar imágenes de Docker
-      run: docker images
-      
-    - name: Iniciar sesión en Docker
+    - name: docker login
       env:
         DOCKER_USER: ${{secrets.DOCKER_USER}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+          
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+          
+    - name: Download and run the Docker base image
+      run: docker run -d --name serving_base tensorflow/serving
+  
+    - name: copy model to the Docker image
+      run: docker cp ${{secrets.MODEL_NAME}} serving_base:/models/${{secrets.MODEL_NAME}}
+        
+    - name: Build the custom Docker image
+      run: docker commit --change "ENV MODEL_NAME ${{secrets.MODEL_NAME}}" serving_base ${{secrets.DOCKER_USER}}/tensorflow-${{secrets.MODEL_NAME}}:${{ github.sha }}
       
     - name: Docker Push
       run: docker push ${{secrets.DOCKER_USER}}/${{secrets.MODEL_NAME}}:${{github.sha}}
