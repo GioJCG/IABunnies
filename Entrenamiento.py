@@ -37,7 +37,7 @@ X_train = X_train / 255.0
 X_test = X_test / 255.0
 
 model = Sequential()
-model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(150, 150, 1)))
+model.add(Conv2D(32, (3, 3), activation='relu', input_shape=(180, 180, 1)))
 model.add(MaxPooling2D((2, 2)))
 model.add(Conv2D(64, (3, 3), activation='relu'))
 model.add(MaxPooling2D((2, 2)))
