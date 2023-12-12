@@ -16,7 +16,7 @@ spec:
       - name: {model_name}-container
         image: docker.io/{docker_user}/{model_name}:{github.sha}
         ports:
-        - containerPort: 3000
+        - containerPort: 8501
 ---
 ###
 apiVersion: v1
@@ -27,8 +27,8 @@ metadata:
   name: {model_name}-service
 spec:
   ports:
-  - port: 3000
-    targetPort: 3000
+  - port: 8501
+    targetPort: 8501
   selector:
     app: {model_name}-server
   type: LoadBalancer
