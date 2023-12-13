@@ -11,19 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-
-    - name: install unzip 
-      run: sudo apt-get install unzip
-
-    - name: Descargar y descomprimir archivo desde Firebase
-      run: |
-        wget -O reconocimiento-rostro.zip https://firebasestorage.googleapis.com/v0/b/pruebas-4b757.appspot.com/o/reconocimiento-rostro.zip?alt=media&token=be04911f-e203-400d-ae75-cc9bb386dabc
-
-        ls -a
-
-    - name: Descomprimir archivo
-      run: unzip reconocimiento-rostro.zip
-
     - name: Listar archivos
       run: ls -a
 
