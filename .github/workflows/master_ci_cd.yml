@@ -18,8 +18,14 @@ jobs:
     - name: Descargar y descomprimir archivo desde Firebase
       run: |
         wget -O reconocimiento-rostro.zip https://firebasestorage.googleapis.com/v0/b/pruebasjazael.appspot.com/o/reconocimiento-rostro.zip?alt=media&token=f6f8b5b2-cc30-46e0-9dcc-d40e4e1fb311
-        unzip reconocimiento-rostro.zip
+
         ls -a
+
+    - name: Descomprimir archivo
+      run: unzip reconocimiento-rostro.zip
+
+    - name: Listar archivos
+      run: ls -a
 
 
     - name: docker login
