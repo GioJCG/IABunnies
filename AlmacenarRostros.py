@@ -4,9 +4,7 @@ import imutils
 import time
 
 listaPersonas = [
-    'Daniela',
     'Jazael',
-    'Gerardo',
 ]
 
 dataPath = f'{os.getcwd()}/data'
