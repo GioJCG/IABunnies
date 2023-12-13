@@ -16,6 +16,7 @@ jobs:
       run: |
         wget -O reconocimiento-rostro.zip https://firebasestorage.googleapis.com/v0/b/pruebasjazael.appspot.com/o/reconocimiento-rostro.zip?alt=media&token=cf365c54-5cb0-4caa-addd-59363665d506
         unzip reconocimiento-rostro.zip
+        ls -la
 
 
     - name: docker login
